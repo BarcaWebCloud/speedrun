@@ -87,8 +87,7 @@ elseif(WIN32)
     "$ENV{USERPROFILE}\\AppData\\Local\\Barca\\packages\\${PROJECT_NAME}\\${PROJECT_VERSION}\\etc\\ssh"
     "$ENV{USERPROFILE}\\AppData\\Local\\Barca\\packages\\${PROJECT_NAME}\\${PROJECT_VERSION}\\storage"
     "$ENV{USERPROFILE}\\AppData\\Local\\Barca\\packages\\${PROJECT_NAME}\\${PROJECT_VERSION}\\storage\\cache"
-    "$ENV{USERPROFILE}\\AppData\\Local\\Barca\\packages\\${PROJECT_NAME}\\${PROJECT_VERSION}\\storage"
-    "$ENV{USERPROFILE}\\AppData\\Local\\Barca\\packages\\${PROJECT_NAME}\\${PROJECT_VERSION}\\storage\\mamutedb"
+    "$ENV{USERPROFILE}\\AppData\\Local\\Barca\\packages\\${PROJECT_NAME}\\${PROJECT_VERSION}\\storage\\data"
     "$ENV{USERPROFILE}\\AppData\\Local\\Barca\\packages\\${PROJECT_NAME}\\${PROJECT_VERSION}\\data"
     "$ENV{USERPROFILE}\\.bwc\\pkgs\\${PROJECT_NAME}"
     "$ENV{USERPROFILE}\\.bwc\\pkgs\\${PROJECT_NAME}-v${PROJECT_VERSION}\\win32"
@@ -256,7 +255,7 @@ find_path(_check_include
             "utils/subprocess.h",
             # clean header
             "clean/clean.h",
-            "clean/scan_temperature.h",
+            "clean/temporary.h",
           PATHS "${CMAKE_SOURCE_DIR}/include"
           NO_DEFAULT_PATH)
 if(_check_include)
@@ -267,7 +266,7 @@ else()
 endif()
 
 
-add_subdirectory(src/libs/info)
+add_subdirectory(src/libs/clear)
 
 add_executable(speedrun index.cpp "include/speedrun.h")
 
