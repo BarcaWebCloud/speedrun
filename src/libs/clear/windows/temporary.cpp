@@ -3,11 +3,11 @@
  *                 Copyright (C) 2021 - 2023, Barca, Inc. 
  
  *    Email: <opensource@barca.com>  GitHub: @BarcaWebCloud. 
- *    Project: Speed Run To Clean Your System And Gain More Performance
+ *    Project: BSCAN to scanner MotherBoards. CPU, Memory Ram, SO and more
  
  * This software is licensed as described in the file COPYING, which                    
  * you should have received as part of this distribution. The terms                     
- * are also available at https://BarcaCorporation.github.io/docs/copyright.html.           
+ * are also available at https://project-barca.github.io/docs/copyright.html.           
  *
  * You may opt to use, copy, modify, merge, publish, distribute and/or sell             
  * copies of the Software, and permit persons to whom the Software is                   
@@ -17,25 +17,20 @@
  * KIND, either express or implied.                                                      
  *
  **************************************************************************************/
-#pragma once
+#include "platform.h"
+#ifdef SPEED_RUN_WINDOWS
+  #include <string>
+  #include <vector>
+  #include "WMIwrapper.h"
+  #pragma comment(lib, "wbemuuid.lib")
+  #include "clean/temporary.h"
 
-#include <string>
-#include <vector>
+  namespace speedrun {
 
-namespace speedrun {
-
-  class TEMP {
-   public:
-    TEMP() = default;
-    TEMP(const std::string& tmpFiles);
-    ~TEMP() = default;
-    // temp files
-    std::string& tmpFiles();
+    std::string TEMP::cleanTmpFiles() { 
+      return "limpando arquivos temporário..";
+    }
     
-    static std::string cleanTmpFiles();
-
-   private:
-    std::string _tmpFiles;
   };
 
-};
+#endif  // END SPEED_RUN_WINDOWS
