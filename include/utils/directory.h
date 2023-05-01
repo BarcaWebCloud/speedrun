@@ -2,7 +2,7 @@
       
  *                 Copyright (C) 2021 - 2023, Barca, Inc. 
  
- *    Email: <opensource@barca.com>  GitHub: @BarcaWebCloud. 
+ *    Email: <opensource@barca.com>  GitHub: @BarcaCorporation. 
  *    Project: Speed Run To Clean Your System And Gain More Performance
  
  * This software is licensed as described in the file COPYING, which                    
@@ -37,6 +37,8 @@ using namespace std;
 #include <utility> // std::pair
 #include <stdexcept> // std::runtime_error
 #include <sstream> // std::stringstream
+#include <Windows.h>
+#include <winternl.h>
 
 namespace fs = std::filesystem;
 
@@ -63,4 +65,15 @@ static std::string listDir(char* path) {
     closedir(dr);
   }
   return std::string(listFilesAndFolders);
+};
+
+static bool isDir(string path) {
+  SetConsoleCP(1252);
+  SetConsoleOutputCP(1252);
+  bool result;
+
+  std::filesystem::path current_dir = std::string(path);
+  result = std::filesystem::is_directory(current_dir.parent_path());
+
+  return result;
 };

@@ -2,7 +2,7 @@
       
  *                 Copyright (C) 2021 - 2023, Barca, Inc. 
  
- *    Email: <opensource@barca.com>  GitHub: @BarcaWebCloud. 
+ *    Email: <opensource@barca.com>  GitHub: @BarcaCorporation. 
  *    Project: Speed Run To Clean Your System And Gain More Performance
  
  * This software is licensed as described in the file COPYING, which                    
@@ -27,6 +27,10 @@
 #include <vector>
 #include <stdlib.h>
 
+#include <stdexcept>
+#include <array>
+
+
 //inline std::string exec(std::string& command) {
 //  std::string output;
 //  std::vector<char> buffer(0x80);
@@ -39,7 +43,6 @@
 //  }
 //  return output;
 //}
-
 
 static int callback(void* data, int argc, char** argv, char** col_name) {
   int i;
