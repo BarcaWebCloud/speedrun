@@ -266,10 +266,12 @@ else()
 endif()
 
 
+# add libs clear from speedrun
 add_subdirectory(src/libs/clear)
 
+# executable SpeedRun.exe
 add_executable(speedrun index.cpp "include/speedrun.h")
-
+# add libs sqlite3
 add_library(sqlite3 "src/libs/sqlite3/sqlite3.c")
 
 if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" AND
@@ -281,3 +283,8 @@ endif()
 
 target_link_libraries(speedrun PUBLIC speedrun::SpeedRun)
 target_link_libraries(speedrun PRIVATE sqlite3)
+target_link_libraries(speedrun PRIVATE 
+  ${PROJECT_SOURCE_DIR}/src/libs/py39/_tkinter.lib
+  ${PROJECT_SOURCE_DIR}/src/libs/py39/python3.lib
+  ${PROJECT_SOURCE_DIR}/src/libs/py39/python39_d.lib
+  ${PROJECT_SOURCE_DIR}/src/libs/py39/python39.lib)
