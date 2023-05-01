@@ -1,0 +1,7 @@
+/**/.vscode/**
+/**/build/**
+.vs/*
+out/*
+package-lock.json
+include/speedrun.config.h.in
+include/config.h
