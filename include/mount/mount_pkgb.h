@@ -17,9 +17,20 @@
  * KIND, either express or implied.                                                      
  *
  **************************************************************************************/
-#pragma once
+#ifndef SPEED_RUN_MOUNT_PKGB
+#define SPEED_RUN_MOUNT_PKGB
 
-#include "clean/clean.h"
-#include "generator/generator.h"
-#include "regedit/regedit.h"
-#include "mount/mount.h"
+namespace speedrun {
+
+	namespace MOUNT {
+		// generator pkgb speed run cli bwc
+		bool GenPKSpeedRunCLI_BWC(void);
+		// generator pkgb speed run program files
+		bool GenPKSpeedRunProgramFiles_x64(void);
+		bool GenPKSpeedRunProgramFiles_x86(void);
+		// generator pkgb speed run appdata local & roaming
+		bool GenPKSpeedRunAppData_ROAMING(void);
+		bool GenPKSpeedRunAppData_LOCAL(void);
+	}
+} 
+#endif

@@ -19,7 +19,5 @@
  **************************************************************************************/
 #pragma once
 
-#include "clean/clean.h"
-#include "generator/generator.h"
-#include "regedit/regedit.h"
-#include "mount/mount.h"
+#include "generator/keygen.h"
+

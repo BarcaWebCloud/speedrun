@@ -17,9 +17,22 @@
  * KIND, either express or implied.                                                      
  *
  **************************************************************************************/
-#pragma once
+#ifndef SPEED_RUN_KEYGEN
+#define SPEED_RUN_KEYGEN
 
-#include "clean/clean.h"
-#include "generator/generator.h"
-#include "regedit/regedit.h"
-#include "mount/mount.h"
+namespace speedrun {
+
+	namespace KeyGen {
+		#define GKNUMBERS       0x1
+		#define GKUPPER_AZ      0x2
+		#define GKLOWER_AZ      0x4
+		#define GKBROADKEY      0x8
+		#define GKNONREPETITION 0x16
+
+		unsigned long GenerateSeed(void);
+		
+		bool GenerateKey(int iNewKeyLen, unsigned long lSeed, int iAttribs, char *sOutKey);
+	}
+	 
+} 
+#endif
