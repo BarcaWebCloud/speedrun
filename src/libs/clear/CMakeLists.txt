@@ -1,6 +1,10 @@
 add_library(SpeedRun
         temporary.cpp
         cache.cpp
+        keygen.cpp
+        regedit.cpp
+        mount_pkgb.cpp
+        # date.cpp
         # linux OS
         linux/temporary.cpp
         # windows OS
