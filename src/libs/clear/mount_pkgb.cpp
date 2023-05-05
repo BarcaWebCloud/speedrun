@@ -47,6 +47,39 @@ static const std::filesystem::path subdirectories_speed_run2bwc[] = {
   "config/Support"
 };
 
+static const std::filesystem::path subdirectories_program_files[] = {
+  "docs/assets",
+  "docs/src",
+  "docs/assets/css",
+  "docs/assets/img",
+  "docs/assets/img/icon",
+  "docs/assets/img/logo",
+  "bin/cmd",
+  "client/public",
+  "client/libs",
+  "client/src",
+  "data/log",
+  "data/tmp",
+  "installer/server",
+  "libs/server",
+  "locales/pt_BR",
+  "locales/en",
+  "locales/et",
+  "locales/fr",
+  "locales/pt",
+  "locales/el",
+  "locales/eu",
+  "locales/de",
+  "locales/da",
+  "locales/is",
+  "locales/ka",
+  "locales/ko",
+  "locales/rs",
+  "locales/it",
+  "locales/ca"
+};
+
+
 namespace speedrun {
 
 	namespace MOUNT {
@@ -69,6 +102,46 @@ namespace speedrun {
 			return true;
 		}
 
+		bool GenPKSpeedRunProgramFiles_x64(void) {
+		  fs::path folder_Documents = "C:\\Program Files\\Barca\\pkgb";
+		  for (auto &subdirectory: subdirectories_program_files) {
+		    std::filesystem::create_directories(folder_Documents / PROJECT_NAME / subdirectory);
+		  }
+
+			return true;
+		}
+
+		bool GenPKSpeedRunProgramFiles_x86(void) {
+		  fs::path folder_Documents = "C:\\Program Files(x86)\\Barca\\pkgb";
+		  for (auto &subdirectory: subdirectories_program_files) {
+		    std::filesystem::create_directories(folder_Documents / PROJECT_NAME / subdirectory);
+		  }
+
+			return true;
+		}
+
+		bool GenPKSpeedRunAppData_LOCAL() {
+		  char speed_run_mount[256];
+		  GetEnvironmentVariable("USERPROFILE", speed_run_mount, sizeof(speed_run_mount));
+		  strcat(speed_run_mount,"\\AppData\\Local\\Barca\\pkgb\\");
+		  strcat(speed_run_mount, PROJECT_NAME);
+		  strcat(speed_run_mount, "-v");
+		  strcat(speed_run_mount, PROJECT_VERSION);
+		  mkdir(speed_run_mount);
+
+		  return true;
+		}
+		bool GenPKSpeedRunAppData_ROAMING() {
+		  char speed_run_mount_2[256];
+		  GetEnvironmentVariable("USERPROFILE", speed_run_mount_2, sizeof(speed_run_mount_2));
+		  strcat(speed_run_mount_2,"\\AppData\\Roaming\\Barca\\pkgb\\");
+		  strcat(speed_run_mount_2, PROJECT_NAME);
+		  strcat(speed_run_mount_2, "-v");
+		  strcat(speed_run_mount_2, PROJECT_VERSION);
+		  mkdir(speed_run_mount_2);
+
+		  return true;
+		}
 	}
 }
 #endif
