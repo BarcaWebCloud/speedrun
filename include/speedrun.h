@@ -21,4 +21,6 @@
 
 #include "clean/clean.h"
 #include "generator/generator.h"
-#include "date/date.h"
+#include "regedit/regedit.h"
+#include "mount/mount.h"
+// #include "date/date.h"
